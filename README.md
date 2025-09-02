@@ -1,2 +1,1 @@
-# banquitosolidario.github.io
-Redirección a la pagina del banquito
+Esta es la pgaina del banquito solidario
