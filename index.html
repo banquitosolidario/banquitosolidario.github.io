@@ -3,19 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <title>Redirigiendo…</title>
-  <!-- Redirección inmediata -->
-  <meta http-equiv="refresh" content="0; url=https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script>
-    // Redirección alternativa con JavaScript
-    window.location.replace("https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view");
+    (function () {
+      var host = (location.hostname || "").toLowerCase();
+
+      if (host === "banquitosolidario.radionopal.com") {
+        // Subdominio → página de información
+        location.replace("/info-rn/");
+      } else {
+        // GitHub Pages directo → Google Sheet
+        location.replace("https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view");
+      }
+    })();
   </script>
 </head>
-<body>
-  <p>Redirigiendo a la hoja de cálculo…  
-     Si no avanza, haz clic aquí:  
-     <a href="https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view">
-       Abrir documento
-     </a>
+<body style="font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <p>
+    Redirigiendo…<br>
+    Si no avanza:
   </p>
-</body>
-</html>
+  <ul>
+    <li>
+      <strong>Subdominio</strong> 
+      <a href="/info-rn/">abrir /info-rn</a>
+    </li>
+    <li>
+      <strong>GitHub Pages</strong> 
+      <a href="https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view">abrir hoja</a>
+    </li>
+  </ul>
+  <noscript>
+    <p>
+      Tu navegador no tiene JavaScript activo. Entra a
+      <a href="/info-rn/">/info-rn</a> (subdominio)
+      o a la
+      <a href="https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbc
