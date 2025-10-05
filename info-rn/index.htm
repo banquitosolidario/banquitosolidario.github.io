@@ -6,87 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
   <style>
-    :root {
-      --fg: #f2f2f2;
-      --bg: #000;
-    }
+    :root { --bg:#000; --fg:#fff; }
     html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--fg);
+      margin:0; padding:0; min-height:100vh;
+      background:var(--bg); color:var(--fg);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Mono",
                    "Segoe UI Mono", "Roboto Mono", "Courier New", monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 2vh 1vw 4vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+      padding:2vh 1vw 4vh;
     }
-
-    /* Ajustes de tamaño compactos para que quepan los ASCII */
     pre {
-      white-space: pre;
-      line-height: 1.05;
-      font-size: clamp(4px, 0.60vw, 10px); /* más pequeño aún */
-      margin: 0;
-      text-align: left;
+      white-space: pre; line-height:1.05;
+      font-size: clamp(4px, 0.60vw, 10px);
+      margin:0; text-align:left; color:var(--fg);
     }
-
-    .graffiti { margin-top: 1vh; }
+    .graffiti { margin-top:1vh; }
     .texto {
-      max-width: 880px;
-      margin: 2vh auto 2vh;
-      color: #d7d7d7;
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
-      font-size: clamp(10px, 0.9vw, 15px);
-      line-height: 1.45;
-      text-align: justify;
+      max-width:880px; margin:2vh auto 2vh; color:#e6e6e6;
+      font-family:"IBM Plex Mono", ui-monospace, monospace;
+      font-size: clamp(10px, 0.9vw, 15px); line-height:1.45; text-align:justify;
     }
-    .info {
-      margin-top: 2vh;
-      font-size: clamp(10px, 0.9vw, 14px);
-      color: #aaa;
-      text-align: center;
-    }
-    .actions {
-      margin-top: 1vh;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
+    .info { margin-top:2vh; font-size:clamp(10px,0.9vw,14px); color:#bbb; text-align:center; }
+    .actions { margin-top:1vh; display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
     a.btn {
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-weight: 700;
-      letter-spacing: .2px;
-      border: none;
-      color: #000;
-      background: linear-gradient(180deg, #35ff9b, #12d87e);
-      font-size: clamp(10px, 0.9vw, 13px);
-      transition: transform .15s ease, opacity .15s ease;
+      text-decoration:none; padding:8px 14px; border-radius:6px; font-weight:700; letter-spacing:.2px; border:1px solid #fff;
+      background:#fff; color:#000; font-size:clamp(10px,0.9vw,13px);
+      transition:transform .15s ease, opacity .15s ease;
     }
-    a.btn:hover { transform: translateY(-1px); opacity: .95; }
+    a.btn:hover { transform:translateY(-1px); opacity:.95; }
     a.btn.secondary {
-      background: linear-gradient(180deg, #333, #111);
-      color: #f2f2f2;
-      border: 1px solid #222;
+      background:transparent; color:#fff; border:1px solid #555;
     }
-    .footer {
-      margin-top: 2vh;
-      font-size: 10px;
-      color: #777;
-      text-align: center;
-    }
+    .footer { margin-top:2vh; font-size:10px; color:#777; text-align:center; }
   </style>
 </head>
 <body>
 
-  <!-- GRAFFITI 1 (nuevo) -->
-  <pre class="graffiti" id="g1">
+  <!-- GRAFFITI 1 -->
+  <pre class="graffiti">
       ___           ___           ___                       ___                    ___           ___           ___           ___           ___ 
      /\  \         /\  \         /\  \          ___        /\  \                  /\__\         /\  \         /\  \         /\  \         /\__\
     /::\  \       /::\  \       /::\  \        /\  \      /::\  \                /::|  |       /::\  \       /::\  \       /::\  \       /:/  /
@@ -112,8 +69,8 @@
     </p>
   </div>
 
-  <!-- GRAFFITI 2 (nuevo) -->
-  <pre class="graffiti" id="g2">
+  <!-- GRAFFITI 2 -->
+  <pre class="graffiti">
  ______     ______     __   __     ______     __  __     __     ______   ______           
 /\  == \   /\  __ \   /\ "-.\ \   /\  __ \   /\ \/\ \   /\ \   /\__  _\ /\  __ \          
 \ \  __<   \ \  __ \  \ \ \-.  \  \ \ \/\_\  \ \ \_\ \  \ \ \  \/_/\ \/ \ \ \/\ \         
@@ -130,7 +87,7 @@
   <div class="info">Aquí más información sobre el Banquito:</div>
 
   <div class="actions">
-    <a class="btn" href="https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view" target="_blank" rel="noopener">
+    <a class="btn" href="https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view?gid=0#gid=0" target="_blank" rel="noopener">
       Abrir hoja del Banquito
     </a>
     <a class="btn secondary" href="https://radionopal.com" target="_blank" rel="noopener">
@@ -139,24 +96,5 @@
   </div>
 
   <div class="footer">© Radio Nopal · Banquito Solidario</div>
-
-  <script>
-    // Colores aleatorios para los grafitis (cambian en cada carga)
-    (function () {
-      const palette = [
-        '#35ff9b', '#ff3b3b', '#7aa2ff', '#ffd166', '#ff73fa',
-        '#00e5ff', '#c3f73a', '#ffa8a8', '#b892ff', '#9efff3'
-      ];
-      function pickDistinctColors() {
-        const p = palette.slice();
-        const c1 = p.splice(Math.floor(Math.random()*p.length), 1)[0];
-        const c2 = p.splice(Math.floor(Math.random()*p.length), 1)[0];
-        return [c1, c2];
-      }
-      const [c1, c2] = pickDistinctColors();
-      document.getElementById('g1').style.color = c1;
-      document.getElementById('g2').style.color = c2;
-    })();
-  </script>
 </body>
 </html>
