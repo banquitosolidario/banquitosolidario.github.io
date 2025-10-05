@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Radio Nopal + Banquito Solidario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      color: #f2f2f2;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Mono",
+                   "Segoe UI Mono", "Roboto Mono", "Courier New", monospace;
+      display: grid;
+      place-items: center;
+      padding: 3vh 2vw;
+    }
+
+    .frame { width: min(1100px, 96vw); position: relative; }
+
+    /* Líneas ASCII arriba/abajo */
+    .ascii-line {
+      white-space: pre;
+      overflow: hidden;
+      color: #9e9e9e;
+      font-size: clamp(8px, 1.1vw, 14px);
+      line-height: 1;
+      user-select: none;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Panel con contenido y columnas laterales de '│' reales */
+    .panel {
+      position: relative;
+      padding: 2.2rem 1.6rem;
+      background:#000;
+      /* pequeño relleno para despegar texto de los costados */
+      padding-left: calc(1.6rem + 1ch);
+      padding-right: calc(1.6rem + 1ch);
+    }
+
+    .side {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1ch;           /* ancho de un carácter monoespaciado */
+      white-space: pre;
+      color: #9e9e9e;
+      line-height: 1.05;    /* debe coincidir con el de <pre> para alinear bien */
+      margin: 0;
+      pointer-events: none; /* que no estorbe clics */
+      user-select: none;
+      overflow: hidden;
+    }
+    .side.left  { left: 0;  text-align: left;  }
+    .side.right { right: 0; text-align: right; }
+
+    pre {
+      white-space: pre;
+      line-height: 1.05;
+      font-size: clamp(6px, 1.05vw, 15px);
+      margin: 0;
+      text-align: left;
+    }
+    .radio { color: #35ff9b; margin-top: .5rem; }
+    .texto {
+      max-width: 820px;
+      margin: 2rem auto 2.2rem;
+      color: #ddd;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: clamp(13px, 1.2vw, 18px);
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .banquito { margin-top: 1.2rem; color: #ff3b3b; }
+
+    .info {
+      margin-top: 2rem;
+      font-size: clamp(14px, 1.2vw, 18px);
+      color: #aaa;
+      text-align: center;
+    }
+    .actions {
+      margin-top: .8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    a.btn {
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      border: none;
+      color: #000;
+      background: linear-gradient(180deg, #35ff9b, #12d87e);
+    }
+    a.btn.secondary {
+      background: linear-gradient(180deg, #333, #111);
+      color: #f2f2f2;
+      border: 1px solid #222;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <section class="frame" aria-label="Marco ASCII híbrido">
+    <pre class="ascii-line">┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────┐</pre>
+
+    <div class="panel" id="panel">
+      <!-- Laterales con '│' reales generados a la altura del panel -->
+      <pre class="side left"  id="sideLeft"  aria-hidden="true"></pre>
+      <pre class="side right" id="sideRight" aria-hidden="true"></pre>
+
+      <pre class="radio">
+____/\\\\\\\\\____________________________/\\\_________________________________/\\\\\_____/\\\_____________________________________________/\\\\\\____        
+ __/\\\///////\\\_________________________\/\\\________________________________\/\\\\\\___\/\\\____________________________________________\////\\\____       
+  _\/\\\_____\/\\\_________________________\/\\\___/\\\_________________________\/\\\/\\\__\/\\\_________________/\\\\\\\\\____________________\/\\\____      
+   _\/\\\\\\\\\\\/_____/\\\\\\\\\___________\/\\\__\///______/\\\\\______________\/\\\//\\\_\/\\\_____/\\\\\_____/\\\/////\\\__/\\\\\\\\\_______\/\\\____     
+    _\/\\\//////\\\____\////////\\\_____/\\\\\\\\\___/\\\___/\\\///\\\____________\/\\\\//\\\\/\\\___/\\\///\\\__\/\\\\\\\\\\__\////////\\\______\/\\\____    
+     _\/\\\____\//\\\_____/\\\\\\\\\\___/\\\////\\\__\/\\\__/\\\__\//\\\___________\/\\\_\//\\\/\\\__/\\\__\//\\\_\/\\\//////_____/\\\\\\\\\\_____\/\\\____   
+      _\/\\\_____\//\\\___/\\\/////\\\__\/\\\__\/\\\__\/\\\_\//\\\__/\\\____________\/\\\__\//\\\\\\_\//\\\__/\\\__\/\\\__________/\\\/////\\\_____\/\\\____  
+       _\/\\\______\//\\\_\//\\\\\\\\/\\_\//\\\\\\\/\\_\/\\\__\///\\\\\/_____________\/\\\___\//\\\\\__\///\\\\\/___\/\\\_________\//\\\\\\\\/\\__/\\\\\\\\\_ 
+        _\///________\///___\////////\//___\///////\//__\///_____\/////_______________\///_____\/////_____\/////_____\///___________\////////\//__\/////////__ 
+      </pre>
+
+      <div class="texto">
+        <p>
+          Para Radio Nopal, la pregunta sigue sin responder:
+          ¿cómo generar redes de apoyo económico?
+          ¿Cómo generar proyectos independientes con una economía justa, solidaria y transparente?
+        </p>
+        <p>
+          Nos gustaría presentarles al <strong>Banquito Solidario</strong>, un proyecto del cual formamos parte
+          además de registrar y archivar en audio las sesiones de estudio.
+        </p>
+      </div>
+
+      <pre class="banquito">
+ _______                                           __    __                                          __  __        __                      __           
+/       \                                         /  |  /  |                                        /  |/  |      /  |                    /  |          
+$$$$$$$  |  ______   _______    ______   __    __ $$/  _$$ |_     ______          _______   ______  $$ |$$/   ____$$ |  ______    ______  $$/   ______  
+$$ |__$$ | /      \ /       \  /      \ /  |  /  |/  |/ $$   |   /      \        /       | /      \ $$ |/  | /    $$ | /      \  /      \ /  | /      \ 
+$$    $$<  $$$$$$  |$$$$$$$  |/$$$$$$  |$$ |  $$ |$$ |$$$$$$/   /$$$$$$  |      /$$$$$$$/ /$$$$$$  |$$ |$$ |/$$$$$$$ | $$$$$$  |/$$$$$$  |$$ |/$$$$$$  |
+$$$$$$$  | /    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ | __ $$ |  $$ |      $$      \ $$ |  $$ |$$ |$$ |$$ |  $$ | /    $$ |$$ |  $$/ $$ |$$ |  $$ |
+$$ |__$$ |/$$$$$$$ |$$ |  $$ |$$ \__$$ |$$ \__$$ |$$ |  $$ |/  |$$ \__$$ |       $$$$$$  |$$ \__$$ |$$ |$$ |$$ \__$$ |/$$$$$$$ |$$ |      $$ |$$ \__$$ |
+$$    $$/ $$    $$ |$$ |  $$ |$$    $$ |$$    $$/ $$ |  $$  $$/ $$    $$/       /     $$/ $$    $$/ $$ |$$ |$$    $$ |$$    $$ |$$ |      $$ |$$    $$/ 
+$$$$$$$/   $$$$$$$/ $$/   $$/  $$$$$$$ | $$$$$$/  $$/    $$$$/   $$$$$$/        $$$$$$$/   $$$$$$/  $$/ $$/  $$$$$$$/  $$$$$$$/ $$/       $$/  $$$$$$/  
+                                    $$ |                                                                                                                
+                                    $$ |                                                                                                                
+                                    $$/                                                                                                                 
+      </pre>
+
+      <div class="info">Aquí más información sobre el Banquito:</div>
+
+      <div class="actions">
+        <a class="btn" href="https://docs.google.com/spreadsheets/d/14mZos8uujYuG3CoOvuv9x_Tpdfng_2ESiDWbcU1w_Ko/view" target="_blank" rel="noopener">
+          Abrir hoja del Banquito
+        </a>
+        <a class="btn secondary" href="https://radionopal.com" target="_blank" rel="noopener">
+          Volver a Radio Nopal
+        </a>
+      </div>
+
+      <div class="footer">© Radio Nopal · Banquito Solidario</div>
+    </div>
+
+    <pre class="ascii-line">└──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘</pre>
+  </section>
+
+  <script>
+    // Genera columnas de '│' que llenan la altura del panel, manteniendo responsivo el contenido.
+    (function () {
+      const panel = document.getElementById('panel');
+      const left  = document.getElementById('sideLeft');
+      const right = document.getElementById('sideRight');
+
+      function updateSides() {
+        // Calcula cuántas líneas caben según la altura y el line-height actual.
+        const lineHeight = parseFloat(getComputedStyle(left).lineHeight) || 16;
+        const h = panel.clientHeight;
+        const lines = Math.max(1, Math.floor(h / lineHeight));
+        const col = Array.from({length: lines}, () => '│').join('\n');
+        left.textContent = col;
+        right.textContent = col;
+      }
+
+      // Inicial y en cambios de tamaño/contenido.
+      updateSides();
+      window.addEventListener('resize', updateSides);
+      // Por si las fuentes tardan en cargar o cambia el alto después.
+      setTimeout(updateSides, 50);
+      setTimeout(updateSides, 250);
+    })();
+  </script>
+</body>
+</html>
